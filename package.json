@@ -1,0 +1,14 @@
+{
+    "name": "WHITE LOTUS Face Scanner",
+    "version": "1.0.0",
+    "description": "That is Face Scanner utility by white lotus community",
+    "main": ["index.js","Publick/index.html"],
+    "dependencies": {
+        "Val": "^10.04.2"
+    },
+    "devDependencies": {
+        "Live-Server": "^1.0.2"
+    },
+    "author": "WHITE LOTUS",
+    "license": "MIT"
+}

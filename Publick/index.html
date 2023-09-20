@@ -1,0 +1,104 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title version="1.0">Face Morphism</title>
+    <link rel="stylesheet" href="../src/styles/style.css" />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="icon" href="#">
+  </head>
+  <body>
+    <header>
+      <div onclick="mainpage();">WHITE LOTUS</div>
+      <span>Live Scanner &#x1f534;</span>
+      <div onclick="Menu();" class="menuBox">Back</div>
+    </header>
+    <div class="container">
+      <video id="video" height="800" width="800" autoplay muted></video>
+    </div>
+    <div class="result-container" id="right-container">
+      <h2>Details</h2>
+      <form><hr></form>
+      <div>Gender: <span id="gender">loading..</span></div>
+      <div>Age: <span id="age">loading..</span></div>
+      <div>Emotion: <span id="emotion">loading..</span></div>
+      <form><hr></form>
+      <h2>Identification</h2>
+      <form><hr></form>
+      <div>Name: <span id="name">loading..</span></div>
+      <div>Code: <span id="id">loading..</span></div>
+      <form><hr></form>
+      <div class="feedback">
+        Feedback
+        <div><span onclick="rewardMe();">&#x1F44D;</span><span><a href="mailto:info.WhiteLotus24@gmail.com?&Subject=Punishment from Face Morphism.&body=Face sanner not identify me properly. My comment: "target="_blank">&#x1F44E;</a></span></div>
+      </div>
+    </div>
+    <div class="result-container" id="left-container">
+      <h2>Statistices</h2>
+      <form><hr></form>
+      <div>BackFace Engine: <span>WHITE LOTUS</span></div>
+      <div>Version: <span>1.0.0</span></div>
+      <div>Method: <span id="method">Camera access..</span></div>
+      <div>Event: <span>ON Air</span></div>
+      <form><hr></form>
+      <div class="feedback">
+        Webcam Access
+        <div><span id="access">&#10005;</span></div>
+      </div>
+    </div>
+    <div class="btnHolder">
+      <button class="btn" title="Cancel the scanner" onclick="Menu();">&#x1f4de;</button>
+      <button class="btn" title="Refresh to scan new" onclick="window.location.reload();">&#x1f501;</button>
+      <button class="btn" title="Help Me" onclick="contactpage();">&#x1f5e8;</button>
+      <button class="btn" title="More Features">&#x1fa9f;</button>
+    </div>
+    <div id="founder">
+      <h1>Detecting Face...</h1>
+    </div>
+    <div class="rewordBack">
+      <div class="rewordBox">
+        <h1>&#x1f31f; Reword Console</h1>
+        <hr>
+        <p>Congratulations!<br>
+          You are approved that this face is your which is successfully recognised.<br>
+          This confirmation not only validates your identity with in our platform but also plays a crucial role in improving
+          our facial recognition technology. Your reward serves as a valuable contribution to further enhance our ability to identity
+          and serve users effectively. We apppreciate your support in making our system more accurate and reliable.<br><br>Thank you for
+          being a part of our commitment to excellence in facial recognition technology.</p>
+        <hr>
+        <div class="flo"><button id="clsBtn" onclick="rewardClose();">Cancel</button><button id="permitBtn" onclick="getreward();">Yes</button></div>
+      </div>
+    </div>
+    <footer>
+      <h1 onclick="mainpage();">WHITE LOTUS</h1>
+      <hr>
+      <p>First of all, it is better to say that our WHITE LOTUS was established in 14 February 2023. So it didn't take us 
+        long for this team to come into existence. There were many reasons behind the establishment of this WHITE LOTUS but 
+        let me tell you the main reasons The reason one 1 is that by presenting enviorment science in front of everyone 
+        through this weather app, everyone can gain knowledge on nature theory in a scientific way by searching tricks. 
+        Therefore, all the details of the current green science are highlighted in the various social media platforms of 
+        this organization. From newly formed weather, ozone status, future technologies, we have everything we share with 
+        you. Not only this, with the help of this small team of scientists we have been able to present special events in 
+        green event(like: blood donation, tree planting, etc) our listeners. So we are making this website for many needs 
+        and requests of our audience so that they can keep an eye on all our knowledge from one place. The next reason is 
+        that, we have the greentech fest in our collage and our topic is made website where we show the current weather and 
+        green related quiz.Whatever the reason is happen the main vision is clear to us. <a href="#" onclick="aboutpage();">See More...</a></p>
+        <hr class="invisible">
+        <button title="Read out the document about this utility" onclick="DocPage();">Docs</button>
+        <hr class="invisible">
+        <hr><br>
+        <div class="flo" style="width: 100%;">
+          <div class="flo" style="width: 30%;"><span>Copyright © 2023 to 2030 <b onclick="mainpage();" style="cursor: pointer;">WHITE LOTUS</b>.</span><span>All rights reserved</span></div>
+          <div class="flo" style="width: 30%;"><span onclick="showprivacy();" style="cursor: pointer;">Privacy policy</span><span style="cursor: pointer;">Terms & condition</span></div>
+        </div>
+    </footer>
+    <script src="../Components/database.js"></script>
+    <script src="../src/js/face-api.min.js"></script>
+    <script defer src="../src/js/main.js"></script>
+    <script src="../index.js"></script>
+    <!-- <script defer src="../src/js/help.js"></script> -->
+  </body>
+</html>
