@@ -4,12 +4,12 @@ let predictedAges = [];
 
 
 Promise.all([
-  faceapi.nets.ssdMobilenetv1.loadFromUri("/FaceMorphism.github.io/src/weights"),
-  faceapi.nets.tinyFaceDetector.loadFromUri("/FaceMorphism.github.io/src/weights"),
-  faceapi.nets.faceLandmark68Net.loadFromUri("/FaceMorphism.github.io/src/weights"),
-  faceapi.nets.faceRecognitionNet.loadFromUri("/FaceMorphism.github.io/src/weights"),
-  faceapi.nets.faceExpressionNet.loadFromUri("/FaceMorphism.github.io/src/weights"),
-  faceapi.nets.ageGenderNet.loadFromUri("/FaceMorphism.github.io/src/weights")
+  faceapi.nets.ssdMobilenetv1.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.tinyFaceDetector.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.faceLandmark68Net.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.faceRecognitionNet.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.faceExpressionNet.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.ageGenderNet.loadFromUri("/FaceMorphism.github.io/Src/weights")
 ]).then(startWebcam);
 // Promise.all([
 //   faceapi.nets.ssdMobilenetv1.loadFromUri("/src/weights"),
