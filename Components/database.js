@@ -36,6 +36,18 @@ const data = [
         code: "Teacher"
     },
     {
+        name: "Syamal Sir",
+        code: "Teacher"
+    },
+    {
+        name: "Tapash Sir",
+        code: "Teacher"
+    },
+    {
+        name: "Rajib pal",
+        code: "Teacher"
+    },
+    {
         name: "Unknown",
         code: "000"
     }
