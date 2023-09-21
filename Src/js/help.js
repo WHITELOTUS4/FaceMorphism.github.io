@@ -41,3 +41,22 @@ function deviceCheck(details){
     document.getElementById("device").innerHTML = `&#10003; (Desktop Vision)`; 
   }
 }
+function moreFeature(){
+	document.querySelector(".moreBack").style.display="block";
+	para1load();
+}
+function moreClose(){
+	document.querySelector(".moreBack").style.display="none";
+}
+function para1load(){
+	document.getElementById("moreP1").style.display="block";
+	document.getElementById("para1").style.background="#e6e6e6";
+	document.getElementById("moreP2").style.display="none";
+	document.getElementById("para2").style.background="#f6f6f6";
+}
+function para2load(){
+	document.getElementById("moreP2").style.display="block";
+	document.getElementById("para2").style.background="#e6e6e6";
+	document.getElementById("moreP1").style.display="none";
+	document.getElementById("para1").style.background="#f6f6f6";
+}

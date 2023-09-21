@@ -2,23 +2,27 @@ const video = document.getElementById("video");
 const isScreenSmall = window.matchMedia("(max-width: 900px)");
 let predictedAges = [];
 
-
-// Promise.all([
-//   faceapi.nets.ssdMobilenetv1.loadFromUri("/FaceMorphism.github.io/Src/weights"),
-//   faceapi.nets.tinyFaceDetector.loadFromUri("/FaceMorphism.github.io/Src/weights"),
-//   faceapi.nets.faceLandmark68Net.loadFromUri("/FaceMorphism.github.io/Src/weights"),
-//   faceapi.nets.faceRecognitionNet.loadFromUri("/FaceMorphism.github.io/Src/weights"),
-//   faceapi.nets.faceExpressionNet.loadFromUri("/FaceMorphism.github.io/Src/weights"),
-//   faceapi.nets.ageGenderNet.loadFromUri("/FaceMorphism.github.io/Src/weights")
-// ]).then(startWebcam);
 Promise.all([
-  faceapi.nets.ssdMobilenetv1.loadFromUri("/src/weights"),
-  faceapi.nets.tinyFaceDetector.loadFromUri("/src/weights"),
-  faceapi.nets.faceLandmark68Net.loadFromUri("/src/weights"),
-  faceapi.nets.faceRecognitionNet.loadFromUri("/src/weights"),
-  faceapi.nets.faceExpressionNet.loadFromUri("/src/weights"),
-  faceapi.nets.ageGenderNet.loadFromUri("/src/weights")
-]).then(startWebcam);
+  faceapi.nets.ssdMobilenetv1.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.tinyFaceDetector.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.faceLandmark68Net.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.faceRecognitionNet.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.faceExpressionNet.loadFromUri("/FaceMorphism.github.io/Src/weights"),
+  faceapi.nets.ageGenderNet.loadFromUri("/FaceMorphism.github.io/Src/weights")
+]).then(startWebcam).catch((error)=>{
+  Promise.all([
+    faceapi.nets.ssdMobilenetv1.loadFromUri("/src/weights"),
+    faceapi.nets.tinyFaceDetector.loadFromUri("/src/weights"),
+    faceapi.nets.faceLandmark68Net.loadFromUri("/src/weights"),
+    faceapi.nets.faceRecognitionNet.loadFromUri("/src/weights"),
+    faceapi.nets.faceExpressionNet.loadFromUri("/src/weights"),
+    faceapi.nets.ageGenderNet.loadFromUri("/src/weights")
+  ]).then(startWebcam).catch((error)=>{
+    document.getElementById("name").innerHTML = 'Face Matcher Engine not found!';
+    document.getElementById("engine").innerHTML = "<i>_no Engine</i>";
+    document.getElementById("indicator").innerHTML = "Scanner is dead &#x1f535;";
+  });
+});
 
 
 function startWebcam(){
@@ -153,19 +157,18 @@ setInterval(function onn(){
   console.clear();
   if((document.getElementById("gender").innerHTML != 'loading..') || ((document.getElementById("name").innerHTML != 'loading..'))){
     document.getElementById("founder").style.display="none";
-    document.getElementById("method").innerText="Compiling..";
-    setTimeout(() => {
-      if(document.getElementById("name").innerHTML == 'loading..'){
-        document.getElementById("name").innerHTML = 'Please wait<br>Face Matcher Engine not found!';
-      }
-    },100);
+    if(document.getElementById("engine").innerText!="_no Engine"){
+      document.getElementById("method").innerText="Compiling..";
+    }else{
+      document.getElementById("method").innerText="Sleep..";
+    }
   }else{
     document.getElementById("founder").style.display="block";
   }
 },1000);
 setTimeout(function off(){
   if(document.getElementById("gender").innerHTML == 'loading..'){
-    document.getElementById("founder").innerHTML = `<h1>Face not found!</h1>`;
+    document.getElementById("founder").innerHTML = `<h1>Please wait<br>Face not found!</h1>`;
     document.getElementById("method").innerText="Scanning..";
   }
 },10000);
