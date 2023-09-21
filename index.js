@@ -120,10 +120,17 @@ function rewardMe(){
     document.querySelector(".rewordBack").style.display="block";
 }
 function getreward(){
-    rewardClose();
-    setTimeout(() => {
-        alert("Reward accepted!");
-    },1000);
+    if(document.getElementById("engine").innerText != "_no Engine"){
+        rewardClose();
+        setTimeout(() => {
+            alert("Reward accepted!");
+        },1000);
+    }else{
+        rewardClose();
+        setTimeout(() => {
+            alert("Reword not accepted for empty screen!");
+        },1000);
+    }
 }
 function rewardClose(){
     document.querySelector(".rewordBack").style.display="none";
