@@ -16,8 +16,8 @@
   <body>
     <header>
       <div onclick="mainpage();">WHITE LOTUS</div>
-      <span>Live Scanner &#x1f534;</span>
-      <div onclick="Menu();" class="menuBox">Back</div>
+      <span id="indicator">Live Scanner &#x1f534;</span>
+      <div onclick="Menu();" class="menuBox" title="Back to main page">Back</div>
     </header>
     <div class="container">
       <video id="video" height="800" width="800" autoplay muted></video>
@@ -36,13 +36,13 @@
       <form><hr></form>
       <div class="feedback">
         Feedback
-        <div><span onclick="rewardMe();">&#x1F44D;</span><span><a href="mailto:info.WhiteLotus24@gmail.com?&Subject=Punishment from Face Morphism.&body=Face sanner not identify me properly. My comment: "target="_blank">&#x1F44E;</a></span></div>
+        <div><span onclick="rewardMe();">&#x1F44D;</span><span><a href="mailto:info.WhiteLotus24@gmail.com?&Subject=Punishment from Face Morphism.&body=Reason: Face sanner not identify me properly. My comment: "target="_blank">&#x1F44E;</a></span></div>
       </div>
     </div>
     <div class="result-container" id="left-container">
       <h2>Statistices</h2>
       <form><hr></form>
-      <div>BackFace Engine: <span>WHITE LOTUS</span></div>
+      <div>BackFace Engine: <span id="engine">WHITE LOTUS</span></div>
       <div>Version: <span>1.0.0</span></div>
       <div>Method: <span id="method">Camera access..</span></div>
       <div>Event: <span>ON Air</span></div>
@@ -55,14 +55,14 @@
       <form><hr></form>
       <div class="feedback">
         Screen Access
-        <div><span id="device">Computer</span></div>
+        <div><span id="device">_Unknown</span></div>
       </div>
     </div>
     <div class="btnHolder">
       <button class="btn" title="Cancel the scanner" onclick="Menu();">&#x1f4de;</button>
       <button class="btn" title="Refresh to scan new" onclick="window.location.reload();">&#x1f501;</button>
       <button class="btn" title="Help Me" onclick="contactpage();">&#x1f5e8;</button>
-      <button class="btn" title="More Features">&#x1fa9f;</button>
+      <button class="btn" title="More Features" onclick="moreFeature();">&#x1fa9f;</button>
     </div>
     <div id="founder">
       <h1>Detecting Face...</h1>
@@ -79,6 +79,30 @@
           being a part of our commitment to excellence in facial recognition technology.</p>
         <hr>
         <div class="flo"><button id="clsBtn" onclick="rewardClose();">Cancel</button><button id="permitBtn" onclick="getreward();">Yes</button></div>
+      </div>
+    </div>
+    <div class="moreBack">
+      <div class="moreBox">
+        <h1>&#x1fa9f; More Features</h1>
+        <hr>
+        <div class="flo moreHolder">
+          <div class="flo" id="para1" onclick="para1load();"><span class="moreicon">&#x1f3db;</span><span class="morehead"><h3>Classic</h3><h6>V1.0.0</h6></span></div>
+          <div class="flo" id="para2" onclick="para2load();"><span class="moreicon">&#x2728;</span><span class="morehead"><h3>Pro</h3><h6>V1.0.0</h6></span></div>
+        </div>
+        <div class="moreP"id="moreP1">
+          <p>Classic version of this face utility is selected defult by any gest user id.<br>This mode provide small
+          amount of features for recognised face only. All features are given below:</p><ul><li>User Details</li><ol>
+          <li>User Gender</li><li>User Age</li><li>User Emotion</li></ol><li>User Identification</li><ol><li>User Name</li>
+          <li>Unique Code of user identify</li></ol><li>Feedback system as Reword and Punishment</li></ul>
+          <p>The above featurs are totaly free for use anytime anywhere. But they are some limitations, for learn this limitations
+          read the document page.</p>
+        </div>
+        <div class="moreP"id="moreP2">
+          <p>Unlock premium version to use pro mode features</p>
+        </div>
+        <p>Apply for upgrade to premium version of Face Morphism utility</p>
+        <hr>
+        <div class="flo"><button id="clsBtn" onclick="moreClose();">Cancel</button><button id="permitBtn" onclick="moreClose();">Apply</button></div>
       </div>
     </div>
     <footer>
