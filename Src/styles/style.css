@@ -97,6 +97,9 @@ header div,header span{
 .result-container div span o{
   color: red;
 }
+.result-container div{
+  font-size: 14px;
+}
 #founder{
   position: absolute;
   top: 45%;
@@ -150,17 +153,18 @@ footer button:hover{
   background: transparent;
   border: 0px solid #fff;
 }
-.rewordBack{
+.rewordBack,.moreBack{
   display: none;
   background: #000000c7;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
   z-index: 99;
+  position: fixed;
 }
-.rewordBox{
+.rewordBox,.moreBox{
   background: #fff;
   border-radius: 10px;
   width: 40%;
@@ -168,18 +172,18 @@ footer button:hover{
   padding: 5px 14px;
   box-shadow: 0px 0px 6px 2px #0c8ff0;
 }
-.rewordBox h1{
+.rewordBox h1,.moreBox h1{
   margin: 0px 0px 0px 5px;
   color: #00ff09;
   font-family: sans-serif;
 }
-.rewordBox p{
+.rewordBox p,.moreBox p{
   text-align: justify;
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
 }
-.rewordBox button{
+.rewordBox button,.moreBox button{
   border-radius: 5px;
   background-color: grey;
   color: #fff;
@@ -195,6 +199,34 @@ footer button:hover{
 }
 #permitBtn{
   background: linear-gradient(180deg, green, greenyellow);
+}
+.moreBox .moreHolder div{
+  background: #f6f6f6;
+  border-radius: 5px;
+  width: 48%;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+.moreHolder div .morehead{
+  width: 70%;
+}
+.moreHolder div .morehead h3{
+  margin: 4px 0px 0px 0px;
+  font-family: monospace;
+}
+.moreHolder div .morehead h6{
+  margin: 4px 0px 8px 0px;
+}
+.moreHolder div .moreicon{
+  padding-top: 10px;
+  color: #0c8ff9;
+}
+.moreP{
+  height: 180px;
+  max-height: 180px;
+  overflow: auto;
+  font-size: 14px;
+  display: none;
 }
 .btnHolder{
   opacity: 0.0;
@@ -265,7 +297,7 @@ footer button:hover{
   footer{
     margin-top: 40px;
   }
-  .rewordBox{
+  .rewordBox,.moreBox{
     width: 80%;
     margin: 25% 10%;
     padding: 5px;
