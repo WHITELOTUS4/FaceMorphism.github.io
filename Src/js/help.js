@@ -1,94 +1,43 @@
-const video = document.getElementById("video");
-const isScreenSmall = window.matchMedia("(max-width: 900px)");
-let predictedAges = [];
-
-Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri("/src/models"),
-  faceapi.nets.faceLandmark68Net.loadFromUri("/src/models"),
-  faceapi.nets.faceRecognitionNet.loadFromUri("/src/models"),
-  faceapi.nets.faceExpressionNet.loadFromUri("/src/models"),
-  faceapi.nets.ageGenderNet.loadFromUri("/src/models")
-]).then(startVideo);
-
-function startVideo() {
-  navigator.getUserMedia(
-    { video: {} },
-    stream => (video.srcObject = stream),
-    err => console.error(err)
-  );
+function upTime(){
+	let Today = [0,0,0,0];
+	let First = dateCraser("20/09/2023");
+	Today[0] = new Date;
+	Today[1] = Today[0].getDate();
+	Today[2] = Today[0].getMonth();
+	Today[3] = Today[0].getFullYear();
+	let v = dateCombineter(Today,First);
+	document.querySelector("#time").innerHTML =`${v}days ${Today[0].getHours()<10?'0'+Today[0].getHours():Today[0].getHours()}:${Today[0].getMinutes()<10?'0'+Today[0].getMinutes():Today[0].getMinutes()}:${Today[0].getSeconds()<10?'0'+Today[0].getSeconds():Today[0].getSeconds()}`;
 }
-function screenResize(isScreenSmall) {
-  if (isScreenSmall.matches) {
-    // If media query matches
-    video.style.width = "320px";
-  } else {
-    video.style.width = "500px";
-  }
+function dateCraser(date){
+	let First = [0,0,0,0];
+	First[0] = date;
+	First[1] = First[0][0]+First[0][1];
+	First[2] = First[0][3]+First[0][4];
+	First[3] = First[0][6]+First[0][7]+First[0][8]+First[0][9];
+	return First;
 }
-
-screenResize(isScreenSmall); // Call listener function at run time
-isScreenSmall.addListener(screenResize);
-
-video.addEventListener("playing", () => {
-  // console.log("playing called");
-  const canvas = faceapi.createCanvasFromMedia(video);
-  let container = document.querySelector(".container");
-  container.append(canvas);
-
-  const displaySize = { width: video.width, height: video.height };
-  faceapi.matchDimensions(canvas, displaySize);
-
-  setInterval(async () => {
-    const detections = await faceapi
-      .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
-      .withFaceLandmarks()
-      .withFaceExpressions()
-      .withAgeAndGender();
-
-    const resizedDetections = faceapi.resizeResults(detections, displaySize);
-    // console.log(resizedDetections);
-
-    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-
-    faceapi.draw.drawDetections(canvas, resizedDetections);
-    faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
-    if (resizedDetections && Object.keys(resizedDetections).length > 0) {
-      const age = resizedDetections.age;
-      const interpolatedAge = interpolateAgePredictions(age);
-      const gender = resizedDetections.gender;
-      const expressions = resizedDetections.expressions;
-      const maxValue = Math.max(...Object.values(expressions));
-      const emotion = Object.keys(expressions).filter(
-        item => expressions[item] === maxValue
-      );
-      document.getElementById("age").innerHTML = `${interpolatedAge.toFixed(1)} <o>${interpolatedAge<=10?"&#x1f476;":interpolatedAge<=25?"&#x1f466;":interpolatedAge<=55?"&#x1f468;":interpolatedAge<=90?"&#x1f474;":"&#x1f47b;"}</o>`;
-      document.getElementById("gender").innerHTML = `${gender} <o>${gender=='male'?"&#x2642;":gender=='female'?"&#x2640;":"?"}</o>`;
-      document.getElementById("emotion").innerHTML = `${emotion[0]} <o>${emotion=='happy'?"&#x1f604;":emotion=='sad'?"&#x1f614;":emotion=='neutral'?"&#x1f610;":emotion=='angry'?"&#x1f620;":"&#x1f622;"}</o>`;
-    }
-  }, 10);
-});
-
-function interpolateAgePredictions(age) {
-  predictedAges = [age].concat(predictedAges).slice(0, 30);
-  const avgPredictedAge = predictedAges.reduce((total, a) => total + a) / predictedAges.length;
-  return avgPredictedAge;
+function dateCombineter(Today,First){
+	let diffMonth=0,diffDate=0;
+	let diffYear = (Today[3] - First[3])*365;
+	if(diffYear > 0){
+		diffMonth = ((12-First[2])+Today[2])*30;
+	}else{
+		diffMonth = (Today[2]-First[2])*30;
+	}
+	diffDate = ((30-First[1])+Today[1])*1;
+	let v = (diffYear+diffMonth+diffDate);
+	return v;
 }
-
-setInterval(function onn(){
-  // console.clear();
-  if(document.getElementById("gender").innerHTML != 'loading..'){
-    document.getElementById("founder").style.display="none";
-    setTimeout(() => {
-      if(document.getElementById("name").innerHTML == 'loading..'){
-        document.getElementById("name").innerHTML = 'Face Matcher Engine not found!';
-      }
-    },100);
-  }else{
-    document.getElementById("founder").style.display="block";
-  }
+setInterval(()=>{
+  upTime();
 },1000);
-setTimeout(function off(){
-  if(document.getElementById("gender").innerHTML == 'loading..'){
-    document.getElementById("founder").innerHTML = `<h1>Face not found!</h1>`;
+deviceCheck(navigator.userAgent);
+function deviceCheck(details){
+	let regexp = /android|iphone|kindle|ipad/i;
+	let isMobileDevice = regexp.test(details);
+	if(isMobileDevice){ 
+    document.getElementById("device").innerHTML = `&#10003; (Mobile Vision)`; 
+  }else{ 
+    document.getElementById("device").innerHTML = `&#10003; (Desktop Vision)`; 
   }
-},4000);
+}
