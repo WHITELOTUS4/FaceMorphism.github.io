@@ -8,6 +8,18 @@ const data = [
         code: "23000121018"
     },
     {
+        name: "Saptrashi Pramanik",
+        code: "23000121016"
+    },
+    {
+        name: "Rajanya Chakraborty",
+        code: "23000121002"
+    },
+    {
+        name: "Arghya Kamal ghosh",
+        code: "Student"
+    },
+    {
         name: "Anubhab Pal",
         code: "Teacher"
     },
@@ -46,6 +58,54 @@ const data = [
     {
         name: "Rajib pal",
         code: "Teacher"
+    },
+    {
+        name: "Kumaresh Manna",
+        code: "Teacher"
+    },
+    {
+        name: "Sunny Ghosh",
+        code: "Teacher"
+    },
+    {
+        name: "Albert Einstein",
+        code: "E=mc^2"
+    },
+    {
+        name: "Nikola Tesla",
+        code: "AC electricity"
+    },
+    {
+        name: "Bill Gates",
+        code: "CEO of Microsoft"
+    },
+    {
+        name: "Elon Musk",
+        code: "CEO of SpaceX"
+    },
+    {
+        name: "Mark Zuckerberg",
+        code: "CEO of Meta"
+    },
+    {
+        name: "Ratan Tata",
+        code: "Head of Tata Com"
+    },
+    {
+        name: "Steve Jobs",
+        code: "Founder of Apple"
+    },
+    {
+        name: "Sharukh Khan",
+        code: "Social Person"
+    },
+    {
+        name: "Jagannath Ghosh",
+        code: "Student"
+    },
+    {
+        name: "subhajit Biswash",
+        code: "Student"
     },
     {
         name: "Unknown",
